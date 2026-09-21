@@ -1,5 +1,51 @@
 # Task Tracker
 
+macOS menu bar app. Each button is a task: click it and it counts until you switch, pause, or stop.
+
+Apple Silicon only, macOS 14 or later. The Xcode command line tools are required (`xcode-select --install`).
+
+## Install
+
+```bash
+git clone <repo-url>
+cd task_tracker
+bash scripts/build-app.sh
+```
+
+That builds `TaskTracker.app` in this folder. Copy it to Applications, or open it from here.
+
+The first launch may be blocked. Right-click the app and choose **Open**.
+
+## Use
+
+1. Click the clock icon in the menu bar.
+2. Under **Botones**, type a name and press **Añadir**.
+3. Click a task button to start. Clicking another one closes the current task and starts the new one.
+4. **Pausa** freezes the timer. **Seguir** continues the same task. Paused time is not counted.
+5. **Stop** ends the task.
+6. **Quitar** hides the button. Time already recorded stays.
+7. **Registro** shows today.
+8. **Exportar** saves a JSON file for today, the current week (Monday to Sunday), or a date range. It includes the name, start, end, and totals.
+
+History is not inside the app. It is stored at:
+
+`~/Library/Application Support/TaskTracker/store.json`
+
+## Update
+
+In the repo folder:
+
+```bash
+git pull
+bash scripts/build-app.sh
+```
+
+Replace the `TaskTracker.app` you use, including the one in Applications. Do not delete `store.json`. History is kept.
+
+---
+
+# Task Tracker
+
 App de macOS para la barra de menú. Cada botón es una tarea: al pulsarlo empieza a contar hasta que cambias, pausas o paras.
 
 Solo funciona en Mac con Apple Silicon y macOS 14 o posterior. Hace falta tener instaladas las herramientas de línea de comandos de Xcode (`xcode-select --install`).
